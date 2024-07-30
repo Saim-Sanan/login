@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:widgets/login_page.dart';
 import 'package:widgets/menu_item.dart';
+// import 'package:widgets/menu_item.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const LoginPage(),
     );
   }
 }
@@ -208,27 +210,27 @@ class _ProfileState extends State<Profile> {
               price: items[index].price,
             ),
           );
-          // ListTile(
-          //   title: Text(menuItems[index].title),
-          //   subtitle: Text(menuItems[index].desc),
-          //   trailing: IconButton(
-          //     icon: Icon(
-          //       Icons.favorite,
-          //       color: favItems.contains(menuItems[index])
-          //           ? Colors.red
-          //           : Colors.black,
-          //     ),
-          //     onPressed: () {
-          //       setState(() {
-          //         if (favItems.contains(menuItems[index])) {
-          //           favItems.remove(menuItems[index]);
-          //         } else {
-          //           favItems.add(menuItems[index]);
-          //         }
-          //       });
-          //     },
-          //   ),
-          // );
+          ListTile(
+            title: Text(menuItems[index].title),
+            subtitle: Text(menuItems[index].desc),
+            trailing: IconButton(
+              icon: Icon(
+                Icons.favorite,
+                color: favItems.contains(menuItems[index])
+                    ? Colors.red
+                    : Colors.black,
+              ),
+              onPressed: () {
+                setState(() {
+                  if (favItems.contains(menuItems[index])) {
+                    favItems.remove(menuItems[index]);
+                  } else {
+                    favItems.add(menuItems[index]);
+                  }
+                });
+              },
+            ),
+          );
         },
       ),
     );
